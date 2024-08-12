@@ -60,7 +60,7 @@ export default function CardSkill({skill,page}:skillprops) {
       
       const adicionarSkill= async()=>{
         const adicionarSkillUsuario:adicionarUsuarioSkill={
-          idUsuario:1,
+          idUsuario:usuario.id,
           skill:[
             {
               id:skill.id,
@@ -98,7 +98,7 @@ export default function CardSkill({skill,page}:skillprops) {
       </View>
         <View style={styles.divImagemSkill}>
          <Text>{skill.nome}</Text>
-        <Image source={imagem} style={styles.imagemSkill}/>
+        <Image source={{uri:"http://192.168.1.15:8080/skill/foto/"+skill.id}} style={styles.imagemSkill}/>
         </View>
         <View style={styles.divAvaliacao}>
         <Text>{skill.nivel}</Text>

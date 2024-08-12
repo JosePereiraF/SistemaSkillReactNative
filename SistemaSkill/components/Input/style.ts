@@ -3,14 +3,14 @@ import { StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
     areaInput:{
         flexDirection:'row',
-        width:'80%',
+        width:250,
         backgroundColor:'#fff',
         borderRadius:5,
         height:50,
         alignItems:'center'
     },
     campoInput:{
-        width:'75%',
+        width:'80%',
         height:50,
         fontSize:16,
         padding:10,
@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
 
     },
     icone:{
-        width:'15%',
+        width:'20%',
         height:50,
         alignItems:'center',
         justifyContent:'center'

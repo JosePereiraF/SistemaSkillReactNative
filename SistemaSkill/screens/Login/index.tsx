@@ -33,6 +33,8 @@ export default function Login() {
         try {
           if(salvarSenha){
             await AsyncStorage.setItem('credencial', JSON.stringify(loginDTO));
+          }else{
+            await AsyncStorage.setItem('credencial', JSON.stringify(null));
           }
           const response = await LoginUsuario(loginDTO);
           const usuarioLogado = response.data.usuario;
@@ -45,27 +47,26 @@ export default function Login() {
         setMensagemErro(error.response.data.titulo);
       }
     }
-
+    const cadastro =()=>{
+      navigation.navigate('cadastro');
+    }
 
     useEffect( ()=>{
       const carregarCredencial = async()=>{
-        try{   
-          const a = await AsyncStorage.getItem('credencial');
-          if(a !=null){
-            const credecial:loginI =  JSON.parse(a);
-            setLogin(credecial.login);
-            setSenha(credecial.senha);
-          }else{
-            setLogin("");
-            setSenha("");
-          }
-        }catch{
+        const a = await AsyncStorage.getItem('credencial');
+        if(a !=null){
+          const credecial:loginI =  JSON.parse(a);
+          setLogin(credecial.login);
+          setSenha(credecial.senha);
+          setSalvarSenha(!salvarSenha);
+        }else{
           setLogin("");
           setSenha("");
         }
       }
       carregarCredencial();
     },[])
+
   return (
     <SafeAreaView style={styles.container}>
         <Image source={imagem} style={styles.imagemLogin}/>
@@ -79,6 +80,9 @@ export default function Login() {
       </View>
       <TouchableOpacity style={styles.botao} onPress={logar}>
         <Text style={styles.textoBotao}>Entrar</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={cadastro}>
+      <Text>Cadastre-se</Text>
       </TouchableOpacity>
       <Text style={styles.textoErro}>{mensagemErro}</Text>
     </SafeAreaView>

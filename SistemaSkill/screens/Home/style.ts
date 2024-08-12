@@ -16,6 +16,7 @@ export const styles = StyleSheet.create({
         gap:20,
     },
     DivAdicionarSkill:{
+        flexDirection:'row',
         justifyContent:'center',
         alignItems:'center',
     },

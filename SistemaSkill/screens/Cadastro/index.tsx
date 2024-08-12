@@ -44,7 +44,7 @@ export default function Cadastro() {
         <Input valor={senha} setValor={setSenha} placeholder='Digite sua senha' senha={true} textoAcessibilidade='Campo para digitar a senha'/>
         <Input valor={confirmarSenha} setValor={setConfirmarSenha} placeholder='Confirme sua senha' senha={true} textoAcessibilidade='Campo para digitar a senha novamente para confirmação'/>
         <TouchableOpacity style={styles.botao} onPress={cadastro}>
-        <Text style={styles.textoBotao}>Entrar</Text>
+        <Text style={styles.textoBotao}>Cadastrar</Text>
       </TouchableOpacity>
       <Text style={styles.textoErro}>{mensagemErro}</Text>
     </SafeAreaView>

@@ -22,6 +22,7 @@ export const styles = StyleSheet.create({
     },
     botaoSalvarSenha:{
         width:20,
+        height:16,
         borderRadius:1,
         borderColor:'black',
         borderWidth: 0.5,

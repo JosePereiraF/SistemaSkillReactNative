@@ -16,7 +16,8 @@ export default function Home() {
   const {skillsUsuario,setSkillsUsuario,usuario,skillsAdicionar,setSkillsAdicionar} =useContext(SistemaContext);
   useEffect(()=>{
     setSkillsUsuario(usuario.skills);
-
+    console.log(usuario);
+    
 },[])
   const abrirModal = ()=>{
     setModal(!modal);
@@ -30,9 +31,11 @@ export default function Home() {
   return (
     <ScrollView style={styles.scrool}>
       <View style={styles.container}>
-
-      <View>
-        <TouchableOpacity onPress={abrirModal} style={styles.DivAdicionarSkill}>
+      <View style={styles.DivAdicionarSkill}>
+        <Text>
+          Adicionar Skill
+        </Text>
+        <TouchableOpacity onPress={abrirModal} >
       <Ionicons name="add-circle" size={30} color="green" /> 
         </TouchableOpacity>
       </View>

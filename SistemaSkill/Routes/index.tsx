@@ -1,16 +1,18 @@
 import { View, Text } from 'react-native'
-import React from 'react'
+import React, { useContext } from 'react'
 import { createDrawerNavigator } from '@react-navigation/drawer'
 import CustonDrawer from '../components/CustomDrawer';
 import Login from '../screens/Login';
 import Cadastro from '../screens/Cadastro';
 import Home from '../screens/Home';
 import Teste from '../screens/teste';
+import { SistemaContext } from '../context/SistemaSKill/SistemSkill';
 
 
 
 export default function Routes() {
     const Drawer = createDrawerNavigator();
+    const { autenticated, setAutenticated}=useContext(SistemaContext);
     return (
     <Drawer.Navigator
     drawerContent={CustonDrawer}
@@ -19,9 +21,15 @@ export default function Routes() {
         drawerActiveTintColor:'#00ff',
     }}
     >
-      <Drawer.Screen name='login' component={Login}/> 
+    {autenticated?(
       <Drawer.Screen name='home' component={Home}/>
+    ):(
+      <>
+      <Drawer.Screen name='login' component={Login}/> 
       <Drawer.Screen name='cadastro' component={Cadastro}/> 
+      </>
+    )}
+
     </Drawer.Navigator>
   )
 }

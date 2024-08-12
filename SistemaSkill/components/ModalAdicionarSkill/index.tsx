@@ -22,9 +22,6 @@ export default function ModalAdicionarSKill({onpress}) {
       <Ionicons name="close" size={30} color="green"/>
       </TouchableOpacity>
      <View>
-        <Text>Tiitulo</Text>
-     </View>
-     <View>
         <FlatList
         data={skillsUsuario}
         scrollEnabled={false}
