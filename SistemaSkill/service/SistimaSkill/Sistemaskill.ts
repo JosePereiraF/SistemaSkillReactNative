@@ -61,7 +61,7 @@ export const LoginUsuario =async (login:loginI):Promise<AxiosResponse<usuarioLog
     })
     }
 export const Cadastrar =async(cadastro:cadastro):Promise<AxiosResponse<usuario>>=>{
-    return await Api.post<usuario>("usuario/teste",cadastro)
+    return await Api.post<usuario>("usuario",cadastro)
     .then((response:AxiosResponse)=>{
         return response;
     }).catch((error:AxiosError)=>{
