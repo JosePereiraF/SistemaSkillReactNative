@@ -70,7 +70,7 @@ export default function CardSkill({skill,page}:skillprops) {
         }
         try {
           await AdicionarUsuarioSkill(adicionarSkillUsuario);
-          setSkillsAdicionar([...skillsAdicionar,skill])
+          setSkillsAdicionar([skill,...skillsAdicionar])
           const skills = skillsUsuario.filter(item => item.id !== adicionarSkillUsuario.skill[0].id)
           setSkillsUsuario(skills);
 
